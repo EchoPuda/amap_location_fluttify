@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
 class com_amap_api_location_DPoint extends java_lang_Object with android_os_Parcelable {
   //region constants
@@ -24,25 +25,45 @@ class com_amap_api_location_DPoint extends java_lang_Object with android_os_Parc
 
   //region creators
   static Future<com_amap_api_location_DPoint> create__() async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_DPoint__', );
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod(
+      'ObjectFactory::createcom_amap_api_location_DPoint__',
+    
+    );
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_DPoint>(__result__)!;
   }
   
   static Future<com_amap_api_location_DPoint> create__double__double(double var1, double var3) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_DPoint__double__double', {"var1": var1, "var3": var3});
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod(
+      'ObjectFactory::createcom_amap_api_location_DPoint__double__double',
+      {"var1": var1, "var3": var3}
+    );
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_DPoint>(__result__)!;
   }
   
   static Future<List<com_amap_api_location_DPoint>> create_batch__(int length) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_DPoint>('ObjectFactory::create_batchcom_amap_api_location_DPoint__', {'length': length});
+    assert(true);
+    final __result_batch__ = await  kAmapLocationFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchcom_amap_api_location_DPoint__',
+      {'length': length}
+    );
+    return __result_batch__
+        ?.map((it) => AmapLocationFluttifyAndroidAs<com_amap_api_location_DPoint>(it))
+        .where((element) => element !=null)
+        .cast<com_amap_api_location_DPoint>()
+        .toList() ?? <com_amap_api_location_DPoint>[];
   }
   
   static Future<List<com_amap_api_location_DPoint>> create_batch__double__double(List<double> var1, List<double> var3) async {
-    if (var1.length != var3.length) {
-      return Future.error('all args must have same length!');
-    }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_DPoint>('ObjectFactory::create_batchcom_amap_api_location_DPoint__double__double', [for (int __i__ = 0; __i__ < var1.length; __i__++) {"var1": var1[__i__], "var3": var3[__i__]}]);
+    assert(var1.length == var3.length);
+    final __result_batch__ = await  kAmapLocationFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchcom_amap_api_location_DPoint__double__double',
+      [for (int __i__ = 0; __i__ < var1.length; __i__++) {"var1": var1[__i__], "var3": var3[__i__]}]
+    );
+    return __result_batch__
+        ?.map((it) => AmapLocationFluttifyAndroidAs<com_amap_api_location_DPoint>(it))
+        .where((element) => element !=null)
+        .cast<com_amap_api_location_DPoint>()
+        .toList() ?? <com_amap_api_location_DPoint>[];
   }
   
   //endregion
@@ -57,7 +78,7 @@ class com_amap_api_location_DPoint extends java_lang_Object with android_os_Parc
 
   //region methods
   
-  Future<double> getLongitude() async {
+  Future<double?> getLongitude() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.DPoint@$refId::getLongitude([])');
@@ -91,7 +112,7 @@ class com_amap_api_location_DPoint extends java_lang_Object with android_os_Parc
   }
   
   
-  Future<double> getLatitude() async {
+  Future<double?> getLatitude() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.DPoint@$refId::getLatitude([])');
@@ -132,7 +153,12 @@ class com_amap_api_location_DPoint extends java_lang_Object with android_os_Parc
   }
 }
 
-extension com_amap_api_location_DPoint_Batch on List<com_amap_api_location_DPoint> {
+extension com_amap_api_location_DPoint_Batch on List<com_amap_api_location_DPoint?> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first?.refId;
+  }
+
   //region getters
   
   //endregion
@@ -143,55 +169,47 @@ extension com_amap_api_location_DPoint_Batch on List<com_amap_api_location_DPoin
 
   //region methods
   
-  Future<List<double>> getLongitude_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<double?>> getLongitude_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.DPoint::getLongitude_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<double>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
   
   Future<List<void>> setLongitude_batch(List<double> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.DPoint::setLongitude_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  Future<List<double>> getLatitude_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<double?>> getLatitude_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.DPoint::getLatitude_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<double>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
   
   Future<List<void>> setLatitude_batch(List<double> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.DPoint::setLatitude_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   //endregion

@@ -14,7 +14,8 @@ enum AMapLocationErrorCode {
   AMapLocationErrorNotConnectedToInternet /* 8 */,
   AMapLocationErrorCannotConnectToHost /* 9 */,
   AMapLocationErrorRegionMonitoringFailure /* 10 */,
-  AMapLocationErrorRiskOfFakeLocation /* 11 */
+  AMapLocationErrorRiskOfFakeLocation /* 11 */,
+  AMapLocationErrorNoFullAccuracyAuth /* 12 */
 }
 
 extension AMapLocationErrorCodeToX on AMapLocationErrorCode {
@@ -31,6 +32,7 @@ extension AMapLocationErrorCodeToX on AMapLocationErrorCode {
       case AMapLocationErrorCode.AMapLocationErrorCannotConnectToHost: return 9;
       case AMapLocationErrorCode.AMapLocationErrorRegionMonitoringFailure: return 10;
       case AMapLocationErrorCode.AMapLocationErrorRiskOfFakeLocation: return 11;
+      case AMapLocationErrorCode.AMapLocationErrorNoFullAccuracyAuth: return 12;
       default: return 0;
     }
   }
@@ -50,6 +52,7 @@ extension AMapLocationErrorCodeFromX on int {
       case 9: return AMapLocationErrorCode.AMapLocationErrorCannotConnectToHost;
       case 10: return AMapLocationErrorCode.AMapLocationErrorRegionMonitoringFailure;
       case 11: return AMapLocationErrorCode.AMapLocationErrorRiskOfFakeLocation;
+      case 12: return AMapLocationErrorCode.AMapLocationErrorNoFullAccuracyAuth;
       default: return AMapLocationErrorCode.values[this + 1];
     }
   }

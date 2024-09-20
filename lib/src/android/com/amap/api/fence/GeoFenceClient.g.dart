@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
 class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
   //region constants
@@ -26,14 +27,24 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
 
   //region creators
   static Future<com_amap_api_fence_GeoFenceClient> create__android_content_Context(android_content_Context var1) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_fence_GeoFenceClient__android_content_Context', {"var1": var1});
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod(
+      'ObjectFactory::createcom_amap_api_fence_GeoFenceClient__android_content_Context',
+      {"var1": var1}
+    );
+    return AmapLocationFluttifyAndroidAs<com_amap_api_fence_GeoFenceClient>(__result__)!;
   }
   
   static Future<List<com_amap_api_fence_GeoFenceClient>> create_batch__android_content_Context(List<android_content_Context> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_fence_GeoFenceClient>('ObjectFactory::create_batchcom_amap_api_fence_GeoFenceClient__android_content_Context', [for (int __i__ = 0; __i__ < var1.length; __i__++) {"var1": var1[__i__]}]);
+    assert(true);
+    final __result_batch__ = await  kAmapLocationFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchcom_amap_api_fence_GeoFenceClient__android_content_Context',
+      [for (int __i__ = 0; __i__ < var1.length; __i__++) {"var1": var1[__i__]}]
+    );
+    return __result_batch__
+        ?.map((it) => AmapLocationFluttifyAndroidAs<com_amap_api_fence_GeoFenceClient>(it))
+        .where((element) => element !=null)
+        .cast<com_amap_api_fence_GeoFenceClient>()
+        .toList() ?? <com_amap_api_fence_GeoFenceClient>[];
   }
   
   //endregion
@@ -48,7 +59,7 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
 
   //region methods
   
-  Future<android_app_PendingIntent> createPendingIntent(String var1) async {
+  Future<android_app_PendingIntent?> createPendingIntent(String var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.fence.GeoFenceClient@$refId::createPendingIntent([\'var1\':$var1])');
@@ -61,7 +72,7 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<android_app_PendingIntent>(__result__);
   }
   
   
@@ -89,32 +100,11 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
     }
   
     // invoke native method
-    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::setGeoFenceListener', {"__this__": this});
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::setGeoFenceListener', {"var1": var1, "__this__": this});
   
   
     // handle native call
-    MethodChannel('com.amap.api.fence.GeoFenceClient::setGeoFenceListener::Callback@$refId', kAmapLocationFluttifyMethodCodec)
-        .setMethodCallHandler((methodCall) async {
-          try {
-            final args = methodCall.arguments as Map;
-            switch (methodCall.method) {
-              case 'Callback::com.amap.api.fence.GeoFenceListener::onGeoFenceCreateFinished':
-                // print log
-                if (fluttifyLogEnabled) {
-                  debugPrint('fluttify-dart-callback: onGeoFenceCreateFinished([\'var1\':${args['var1']}, \'var2\':${args['var2']}, \'var3\':${args['var3']}])');
-                }
-          
-                // handle the native call
-                var1?.onGeoFenceCreateFinished((args['var1'] as List).cast<com_amap_api_fence_GeoFence>(), args['var2'], args['var3']);
-                break;
-              default:
-                break;
-            }
-          } catch (e) {
-            debugPrint(e);
-            rethrow;
-          }
-        });
+  
   
     return __result__;
   }
@@ -222,7 +212,7 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
   }
   
   
-  Future<bool> removeGeoFence__com_amap_api_fence_GeoFence(com_amap_api_fence_GeoFence var1) async {
+  Future<bool?> removeGeoFence__com_amap_api_fence_GeoFence(com_amap_api_fence_GeoFence var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.fence.GeoFenceClient@$refId::removeGeoFence([])');
@@ -239,7 +229,7 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
   }
   
   
-  Future<List<com_amap_api_fence_GeoFence>> getAllGeoFence() async {
+  Future<List<com_amap_api_fence_GeoFence>?> getAllGeoFence() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.fence.GeoFenceClient@$refId::getAllGeoFence([])');
@@ -252,7 +242,7 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
     // handle native call
   
   
-    return (__result__ as List)?.cast<com_amap_api_fence_GeoFence>();
+    return (__result__ as List?)?.map((it) => AmapLocationFluttifyAndroidAs<com_amap_api_fence_GeoFence>(it)).where((e) => e != null).cast<com_amap_api_fence_GeoFence>().toList();
   }
   
   
@@ -307,7 +297,7 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
   }
   
   
-  Future<bool> isPause() async {
+  Future<bool?> isPause() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.fence.GeoFenceClient@$refId::isPause([])');
@@ -331,7 +321,12 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
   }
 }
 
-extension com_amap_api_fence_GeoFenceClient_Batch on List<com_amap_api_fence_GeoFenceClient> {
+extension com_amap_api_fence_GeoFenceClient_Batch on List<com_amap_api_fence_GeoFenceClient?> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first?.refId;
+  }
+
   //region getters
   
   //endregion
@@ -342,185 +337,157 @@ extension com_amap_api_fence_GeoFenceClient_Batch on List<com_amap_api_fence_Geo
 
   //region methods
   
-  Future<List<android_app_PendingIntent>> createPendingIntent_batch(List<String> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<android_app_PendingIntent?>> createPendingIntent_batch(List<String> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::createPendingIntent_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<android_app_PendingIntent>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<android_app_PendingIntent>(__result__)).cast<android_app_PendingIntent?>().toList();
   }
   
   
   Future<List<void>> setActivateAction_batch(List<int> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::setActivateAction_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> addGeoFence__com_amap_api_location_DPoint__double__String_batch(List<com_amap_api_location_DPoint> var1, List<double> var2, List<String> var3) async {
-    if (var1.length != var2.length || var2.length != var3.length) {
-      return Future.error('all args must have same length!');
-    }
+    assert(var1.length == var2.length && var2.length == var3.length);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::addGeoFence__com_amap_api_location_DPoint__double__String_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "var2": var2[__i__], "var3": var3[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> addGeoFence__List_com_amap_api_location_DPoint___String_batch(List<List<com_amap_api_location_DPoint>> var1, List<String> var2) async {
-    if (var1.length != var2.length) {
-      return Future.error('all args must have same length!');
-    }
+    assert(var1.length == var2.length);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::addGeoFence__List_com_amap_api_location_DPoint___String_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "var2": var2[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> addGeoFence__String__String__com_amap_api_location_DPoint__double__int__String_batch(List<String> var1, List<String> var2, List<com_amap_api_location_DPoint> var3, List<double> var4, List<int> var5, List<String> var6) async {
-    if (var1.length != var2.length || var2.length != var3.length || var3.length != var4.length || var4.length != var5.length || var5.length != var6.length) {
-      return Future.error('all args must have same length!');
-    }
+    assert(var1.length == var2.length && var2.length == var3.length && var3.length == var4.length && var4.length == var5.length && var5.length == var6.length);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::addGeoFence__String__String__com_amap_api_location_DPoint__double__int__String_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "var2": var2[__i__], "var3": var3[__i__], "var4": var4[__i__], "var5": var5[__i__], "var6": var6[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> addGeoFence__String__String__String__int__String_batch(List<String> var1, List<String> var2, List<String> var3, List<int> var4, List<String> var5) async {
-    if (var1.length != var2.length || var2.length != var3.length || var3.length != var4.length || var4.length != var5.length) {
-      return Future.error('all args must have same length!');
-    }
+    assert(var1.length == var2.length && var2.length == var3.length && var3.length == var4.length && var4.length == var5.length);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::addGeoFence__String__String__String__int__String_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "var2": var2[__i__], "var3": var3[__i__], "var4": var4[__i__], "var5": var5[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> addGeoFence__String__String_batch(List<String> var1, List<String> var2) async {
-    if (var1.length != var2.length) {
-      return Future.error('all args must have same length!');
-    }
+    assert(var1.length == var2.length);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::addGeoFence__String__String_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "var2": var2[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> removeGeoFence_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::removeGeoFence_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  Future<List<bool>> removeGeoFence__com_amap_api_fence_GeoFence_batch(List<com_amap_api_fence_GeoFence> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> removeGeoFence__com_amap_api_fence_GeoFence_batch(List<com_amap_api_fence_GeoFence> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::removeGeoFence__com_amap_api_fence_GeoFence_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<List<com_amap_api_fence_GeoFence>>> getAllGeoFence_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<List<com_amap_api_fence_GeoFence>?>> getAllGeoFence_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::getAllGeoFence_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<List<com_amap_api_fence_GeoFence>>().map((__result__) => (__result__ as List)?.cast<com_amap_api_fence_GeoFence>()).toList();
+    return (resultBatch as List).map((__result__) => (__result__ as List?)?.map((it) => AmapLocationFluttifyAndroidAs<com_amap_api_fence_GeoFence>(it)).where((e) => e != null).cast<com_amap_api_fence_GeoFence>().toList()).cast<List<com_amap_api_fence_GeoFence>?>().toList();
   }
   
   
   Future<List<void>> setGeoFenceAble_batch(List<String> var1, List<bool> var2) async {
-    if (var1.length != var2.length) {
-      return Future.error('all args must have same length!');
-    }
+    assert(var1.length == var2.length);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::setGeoFenceAble_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "var2": var2[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> pauseGeoFence_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::pauseGeoFence_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> resumeGeoFence_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::resumeGeoFence_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  Future<List<bool>> isPause_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isPause_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::isPause_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   //endregion

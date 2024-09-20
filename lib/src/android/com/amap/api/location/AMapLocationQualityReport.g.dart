@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
 class com_amap_api_location_AMapLocationQualityReport extends java_lang_Object  {
   //region constants
@@ -28,14 +29,24 @@ class com_amap_api_location_AMapLocationQualityReport extends java_lang_Object  
 
   //region creators
   static Future<com_amap_api_location_AMapLocationQualityReport> create__() async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_AMapLocationQualityReport__', );
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod(
+      'ObjectFactory::createcom_amap_api_location_AMapLocationQualityReport__',
+    
+    );
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationQualityReport>(__result__)!;
   }
   
   static Future<List<com_amap_api_location_AMapLocationQualityReport>> create_batch__(int length) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_AMapLocationQualityReport>('ObjectFactory::create_batchcom_amap_api_location_AMapLocationQualityReport__', {'length': length});
+    assert(true);
+    final __result_batch__ = await  kAmapLocationFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchcom_amap_api_location_AMapLocationQualityReport__',
+      {'length': length}
+    );
+    return __result_batch__
+        ?.map((it) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationQualityReport>(it))
+        .where((element) => element !=null)
+        .cast<com_amap_api_location_AMapLocationQualityReport>()
+        .toList() ?? <com_amap_api_location_AMapLocationQualityReport>[];
   }
   
   //endregion
@@ -101,7 +112,7 @@ class com_amap_api_location_AMapLocationQualityReport extends java_lang_Object  
   }
   
   
-  Future<bool> isWifiAble() async {
+  Future<bool?> isWifiAble() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationQualityReport@$refId::isWifiAble([])');
@@ -118,7 +129,7 @@ class com_amap_api_location_AMapLocationQualityReport extends java_lang_Object  
   }
   
   
-  Future<int> getGPSStatus() async {
+  Future<int?> getGPSStatus() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationQualityReport@$refId::getGPSStatus([])');
@@ -135,7 +146,7 @@ class com_amap_api_location_AMapLocationQualityReport extends java_lang_Object  
   }
   
   
-  Future<int> getGPSSatellites() async {
+  Future<int?> getGPSSatellites() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationQualityReport@$refId::getGPSSatellites([])');
@@ -152,7 +163,7 @@ class com_amap_api_location_AMapLocationQualityReport extends java_lang_Object  
   }
   
   
-  Future<String> getNetworkType() async {
+  Future<String?> getNetworkType() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationQualityReport@$refId::getNetworkType([])');
@@ -186,7 +197,7 @@ class com_amap_api_location_AMapLocationQualityReport extends java_lang_Object  
   }
   
   
-  Future<int> getNetUseTime() async {
+  Future<int?> getNetUseTime() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationQualityReport@$refId::getNetUseTime([])');
@@ -237,7 +248,7 @@ class com_amap_api_location_AMapLocationQualityReport extends java_lang_Object  
   }
   
   
-  Future<bool> isInstalledHighDangerMockApp() async {
+  Future<bool?> isInstalledHighDangerMockApp() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationQualityReport@$refId::isInstalledHighDangerMockApp([])');
@@ -271,7 +282,7 @@ class com_amap_api_location_AMapLocationQualityReport extends java_lang_Object  
   }
   
   
-  Future<String> getAdviseMessage() async {
+  Future<String?> getAdviseMessage() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationQualityReport@$refId::getAdviseMessage([])');
@@ -295,7 +306,12 @@ class com_amap_api_location_AMapLocationQualityReport extends java_lang_Object  
   }
 }
 
-extension com_amap_api_location_AMapLocationQualityReport_Batch on List<com_amap_api_location_AMapLocationQualityReport> {
+extension com_amap_api_location_AMapLocationQualityReport_Batch on List<com_amap_api_location_AMapLocationQualityReport?> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first?.refId;
+  }
+
   //region getters
   
   //endregion
@@ -307,184 +323,156 @@ extension com_amap_api_location_AMapLocationQualityReport_Batch on List<com_amap
   //region methods
   
   Future<List<void>> setWifiAble_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::setWifiAble_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> setGpsStatus_batch(List<int> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::setGpsStatus_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> setGPSSatellites_batch(List<int> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::setGPSSatellites_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  Future<List<bool>> isWifiAble_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isWifiAble_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::isWifiAble_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<int>> getGPSStatus_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<int?>> getGPSStatus_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::getGPSStatus_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   
-  Future<List<int>> getGPSSatellites_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<int?>> getGPSSatellites_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::getGPSSatellites_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   
-  Future<List<String>> getNetworkType_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<String?>> getNetworkType_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::getNetworkType_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
   
   Future<List<void>> setNetworkType_batch(List<String> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::setNetworkType_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  Future<List<int>> getNetUseTime_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<int?>> getNetUseTime_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::getNetUseTime_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   
   Future<List<void>> setNetUseTime_batch(List<int> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::setNetUseTime_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> setInstallHighDangerMockApp_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::setInstallHighDangerMockApp_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  Future<List<bool>> isInstalledHighDangerMockApp_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isInstalledHighDangerMockApp_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::isInstalledHighDangerMockApp_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
   Future<List<void>> setLocationMode_batch(List<com_amap_api_location_AMapLocationClientOption_AMapLocationMode> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::setLocationMode_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__].toValue(), "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  Future<List<String>> getAdviseMessage_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<String?>> getAdviseMessage_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationQualityReport::getAdviseMessage_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
   //endregion

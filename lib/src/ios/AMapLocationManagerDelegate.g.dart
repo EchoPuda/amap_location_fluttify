@@ -11,12 +11,155 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
-
+class _AMapLocationManagerDelegate_SUB extends NSObject with AMapLocationManagerDelegate {}
 
 mixin AMapLocationManagerDelegate on NSObject {
   
 
+  static AMapLocationManagerDelegate subInstance() => _AMapLocationManagerDelegate_SUB();
+
+  static Future<AMapLocationManagerDelegate> anonymous__() async {
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManagerDelegate::createAnonymous__');
+  
+    final __object__ = AmapLocationFluttifyIOSAs<AMapLocationManagerDelegate>(__result__)!;
+  
+    // handle callback
+    MethodChannel('AMapLocationManagerDelegate::Callback@${__object__.refId}', kAmapLocationFluttifyMethodCodec)
+        .setMethodCallHandler((methodCall) async {
+          try {
+            final args = methodCall.arguments as Map;
+            switch (methodCall.method) {
+              case 'amapLocationManager_doRequireLocationAuth':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_doRequireLocationAuth?.call([\'manager\':${args['manager']}, \'locationManager\':${args['locationManager']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_doRequireLocationAuth?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), AmapLocationFluttifyIOSAs<CLLocationManager>(args['locationManager']));
+                break;
+              case 'amapLocationManager_didFailWithError':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_didFailWithError?.call([\'manager\':${args['manager']}, \'error\':${args['error']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_didFailWithError?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), AmapLocationFluttifyIOSAs<NSError>(args['error']));
+                break;
+              case 'amapLocationManager_didUpdateLocation':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_didUpdateLocation?.call([\'manager\':${args['manager']}, \'location\':${args['location']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_didUpdateLocation?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), AmapLocationFluttifyIOSAs<CLLocation>(args['location']));
+                break;
+              case 'amapLocationManager_didUpdateLocation_reGeocode':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_didUpdateLocation_reGeocode?.call([\'manager\':${args['manager']}, \'location\':${args['location']}, \'reGeocode\':${args['reGeocode']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_didUpdateLocation_reGeocode?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), AmapLocationFluttifyIOSAs<CLLocation>(args['location']), AmapLocationFluttifyIOSAs<AMapLocationReGeocode>(args['reGeocode']));
+                break;
+              case 'amapLocationManager_didChangeAuthorizationStatus':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_didChangeAuthorizationStatus?.call([\'manager\':${args['manager']}, \'status\':${args['status']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_didChangeAuthorizationStatus?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), (args['status'] as int).toCLAuthorizationStatus());
+                break;
+              case 'amapLocationManager_locationManagerDidChangeAuthorization':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_locationManagerDidChangeAuthorization?.call([\'manager\':${args['manager']}, \'locationManager\':${args['locationManager']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_locationManagerDidChangeAuthorization?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), AmapLocationFluttifyIOSAs<CLLocationManager>(args['locationManager']));
+                break;
+              case 'amapLocationManagerShouldDisplayHeadingCalibration':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManagerShouldDisplayHeadingCalibration?.call([\'manager\':${args['manager']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManagerShouldDisplayHeadingCalibration?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']));
+                break;
+              case 'amapLocationManager_didUpdateHeading':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_didUpdateHeading?.call([\'manager\':${args['manager']}, \'newHeading\':${args['newHeading']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_didUpdateHeading?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), AmapLocationFluttifyIOSAs<CLHeading>(args['newHeading']));
+                break;
+              case 'amapLocationManager_didStartMonitoringForRegion':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_didStartMonitoringForRegion?.call([\'manager\':${args['manager']}, \'region\':${args['region']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_didStartMonitoringForRegion?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), AmapLocationFluttifyIOSAs<AMapLocationRegion>(args['region']));
+                break;
+              case 'amapLocationManager_didEnterRegion':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_didEnterRegion?.call([\'manager\':${args['manager']}, \'region\':${args['region']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_didEnterRegion?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), AmapLocationFluttifyIOSAs<AMapLocationRegion>(args['region']));
+                break;
+              case 'amapLocationManager_didExitRegion':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_didExitRegion?.call([\'manager\':${args['manager']}, \'region\':${args['region']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_didExitRegion?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), AmapLocationFluttifyIOSAs<AMapLocationRegion>(args['region']));
+                break;
+              case 'amapLocationManager_didDetermineState_forRegion':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_didDetermineState_forRegion?.call([\'manager\':${args['manager']}, \'state\':${args['state']}, \'region\':${args['region']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_didDetermineState_forRegion?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), (args['state'] as int).toAMapLocationRegionState(), AmapLocationFluttifyIOSAs<AMapLocationRegion>(args['region']));
+                break;
+              case 'amapLocationManager_monitoringDidFailForRegion_withError':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.amapLocationManager_monitoringDidFailForRegion_withError?.call([\'manager\':${args['manager']}, \'region\':${args['region']}, \'error\':${args['error']}])');
+                }
+            
+                // handle the native call
+                __object__.amapLocationManager_monitoringDidFailForRegion_withError?.call(AmapLocationFluttifyIOSAs<AMapLocationManager>(args['manager']), AmapLocationFluttifyIOSAs<AMapLocationRegion>(args['region']), AmapLocationFluttifyIOSAs<NSError>(args['error']));
+                break;
+              default:
+                throw MissingPluginException('方法${methodCall.method}未实现');
+                break;
+            }
+          } catch (e) {
+            debugPrint(e.toString());
+            rethrow;
+          }
+        });
+  
+    return __object__;
+  }
   
 
   @override
@@ -26,41 +169,33 @@ mixin AMapLocationManagerDelegate on NSObject {
 
   
 
-  @mustCallSuper
-  Future<void> amapLocationManager_doRequireLocationAuth(AMapLocationManager manager, CLLocationManager locationManager) {}
+  Future<void> Function(AMapLocationManager? manager, CLLocationManager? locationManager, void Function(NSError? error) completion)? amapLocationManager_doRequireTemporaryFullAccuracyAuth_completion;
   
-  @mustCallSuper
-  Future<void> amapLocationManager_didFailWithError(AMapLocationManager manager, NSError error) {}
+  Future<void> Function(AMapLocationManager? manager, CLLocationManager? locationManager)? amapLocationManager_doRequireLocationAuth;
   
-  @mustCallSuper
-  Future<void> amapLocationManager_didUpdateLocation(AMapLocationManager manager, CLLocation location) {}
+  Future<void> Function(AMapLocationManager? manager, NSError? error)? amapLocationManager_didFailWithError;
   
-  @mustCallSuper
-  Future<void> amapLocationManager_didUpdateLocation_reGeocode(AMapLocationManager manager, CLLocation location, AMapLocationReGeocode reGeocode) {}
+  Future<void> Function(AMapLocationManager? manager, CLLocation? location)? amapLocationManager_didUpdateLocation;
   
-  @mustCallSuper
-  Future<void> amapLocationManager_didChangeAuthorizationStatus(AMapLocationManager manager, CLAuthorizationStatus status) {}
+  Future<void> Function(AMapLocationManager? manager, CLLocation? location, AMapLocationReGeocode? reGeocode)? amapLocationManager_didUpdateLocation_reGeocode;
   
-  @mustCallSuper
-  Future<bool> amapLocationManagerShouldDisplayHeadingCalibration(AMapLocationManager manager) {}
+  Future<void> Function(AMapLocationManager? manager, CLAuthorizationStatus? status)? amapLocationManager_didChangeAuthorizationStatus;
   
-  @mustCallSuper
-  Future<void> amapLocationManager_didUpdateHeading(AMapLocationManager manager, CLHeading newHeading) {}
+  Future<void> Function(AMapLocationManager? manager, CLLocationManager? locationManager)? amapLocationManager_locationManagerDidChangeAuthorization;
   
-  @mustCallSuper
-  Future<void> amapLocationManager_didStartMonitoringForRegion(AMapLocationManager manager, AMapLocationRegion region) {}
+  Future<bool?> Function(AMapLocationManager? manager)? amapLocationManagerShouldDisplayHeadingCalibration;
   
-  @mustCallSuper
-  Future<void> amapLocationManager_didEnterRegion(AMapLocationManager manager, AMapLocationRegion region) {}
+  Future<void> Function(AMapLocationManager? manager, CLHeading? newHeading)? amapLocationManager_didUpdateHeading;
   
-  @mustCallSuper
-  Future<void> amapLocationManager_didExitRegion(AMapLocationManager manager, AMapLocationRegion region) {}
+  Future<void> Function(AMapLocationManager? manager, AMapLocationRegion? region)? amapLocationManager_didStartMonitoringForRegion;
   
-  @mustCallSuper
-  Future<void> amapLocationManager_didDetermineState_forRegion(AMapLocationManager manager, AMapLocationRegionState state, AMapLocationRegion region) {}
+  Future<void> Function(AMapLocationManager? manager, AMapLocationRegion? region)? amapLocationManager_didEnterRegion;
   
-  @mustCallSuper
-  Future<void> amapLocationManager_monitoringDidFailForRegion_withError(AMapLocationManager manager, AMapLocationRegion region, NSError error) {}
+  Future<void> Function(AMapLocationManager? manager, AMapLocationRegion? region)? amapLocationManager_didExitRegion;
+  
+  Future<void> Function(AMapLocationManager? manager, AMapLocationRegionState? state, AMapLocationRegion? region)? amapLocationManager_didDetermineState_forRegion;
+  
+  Future<void> Function(AMapLocationManager? manager, AMapLocationRegion? region, NSError? error)? amapLocationManager_monitoringDidFailForRegion_withError;
   
 }
 

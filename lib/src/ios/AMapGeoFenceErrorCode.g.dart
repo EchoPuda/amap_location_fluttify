@@ -9,7 +9,8 @@ enum AMapGeoFenceErrorCode {
   AMapGeoFenceErrorFailureConnection /* 3 */,
   AMapGeoFenceErrorFailureAuth /* 4 */,
   AMapGeoFenceErrorNoValidFence /* 5 */,
-  AMapGeoFenceErroFailureLocating /* 6 */
+  AMapGeoFenceErroFailureLocating /* 6 */,
+  AMapGeoFenceErroFailureFullAccuracyLocating /* 7 */
 }
 
 extension AMapGeoFenceErrorCodeToX on AMapGeoFenceErrorCode {
@@ -21,6 +22,7 @@ extension AMapGeoFenceErrorCodeToX on AMapGeoFenceErrorCode {
       case AMapGeoFenceErrorCode.AMapGeoFenceErrorFailureAuth: return 4;
       case AMapGeoFenceErrorCode.AMapGeoFenceErrorNoValidFence: return 5;
       case AMapGeoFenceErrorCode.AMapGeoFenceErroFailureLocating: return 6;
+      case AMapGeoFenceErrorCode.AMapGeoFenceErroFailureFullAccuracyLocating: return 7;
       default: return 0;
     }
   }
@@ -35,6 +37,7 @@ extension AMapGeoFenceErrorCodeFromX on int {
       case 4: return AMapGeoFenceErrorCode.AMapGeoFenceErrorFailureAuth;
       case 5: return AMapGeoFenceErrorCode.AMapGeoFenceErrorNoValidFence;
       case 6: return AMapGeoFenceErrorCode.AMapGeoFenceErroFailureLocating;
+      case 7: return AMapGeoFenceErrorCode.AMapGeoFenceErroFailureFullAccuracyLocating;
       default: return AMapGeoFenceErrorCode.values[this + 1];
     }
   }

@@ -12,8 +12,9 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
-Future<CLLocationCoordinate2D> AMapLocationCoordinateConvert(CLLocationCoordinate2D coordinate, AMapLocationCoordinateType type) async {
+Future<CLLocationCoordinate2D?> AMapLocationCoordinateConvert(CLLocationCoordinate2D coordinate, AMapLocationCoordinateType type) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: AMapLocationCoordinateConvert::AMapLocationCoordinateConvert([])');
@@ -26,10 +27,10 @@ Future<CLLocationCoordinate2D> AMapLocationCoordinateConvert(CLLocationCoordinat
   // handle native call
   
 
-  return __result__;
+  return AmapLocationFluttifyIOSAs<CLLocationCoordinate2D>(__result__);
 }
 
-Future<bool> AMapLocationDataAvailableForCoordinate(CLLocationCoordinate2D coordinate) async {
+Future<bool?> AMapLocationDataAvailableForCoordinate(CLLocationCoordinate2D coordinate) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: AMapLocationDataAvailableForCoordinate::AMapLocationDataAvailableForCoordinate([])');

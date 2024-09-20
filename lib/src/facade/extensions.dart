@@ -58,12 +58,12 @@ extension com_amap_api_fence_GeoFenceClient_X
   }
 
   Future<void> addPoiGeoFence({
-    @required String keyword,
-    String poiType,
-    String city,
-    int aroundRadius,
+    required String keyword,
+    String? poiType,
+    String? city,
+    int? aroundRadius,
     String customId = '',
-    int activeAction,
+    int? activeAction,
   }) async {
     await kAmapLocationFluttifyChannel.invokeMethod(
       'com.amap.api.fence.GeoFenceClient::addPoiGeoFenceX',
@@ -80,9 +80,9 @@ extension com_amap_api_fence_GeoFenceClient_X
   }
 
   Future<void> addPolygonGeoFence({
-    @required List<com_amap_api_location_DPoint> polygon,
+    required List<com_amap_api_location_DPoint> polygon,
     String customId = '',
-    int activeAction,
+    int? activeAction,
   }) async {
     await kAmapLocationFluttifyChannel.invokeMethod(
       'com.amap.api.fence.GeoFenceClient::addPolygonGeoFenceX',
@@ -96,9 +96,9 @@ extension com_amap_api_fence_GeoFenceClient_X
   }
 
   Future<void> addDistrictGeoFence({
-    @required String keyword,
+    required String keyword,
     String customId = '',
-    @required int activeAction,
+    required int activeAction,
   }) async {
     await kAmapLocationFluttifyChannel.invokeMethod(
       'com.amap.api.fence.GeoFenceClient::addDistrictGeoFenceX',

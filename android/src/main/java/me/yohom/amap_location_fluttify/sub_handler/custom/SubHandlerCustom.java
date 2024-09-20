@@ -63,7 +63,7 @@ public class SubHandlerCustom {
                     arguments.put("fence", fence);
 
                     new MethodChannel(messenger, "com.amap.api.fence.GeoFenceClient::addGeoFenceX::Callback", new StandardMethodCodec(new FluttifyMessageCodec()))
-                            .invokeMethod("Callback::com.amap.api.fence.GeoFenceClient::addGeoFenceX", arguments);
+                       .invokeMethod("Callback::com.amap.api.fence.GeoFenceClient::addGeoFenceX", arguments);
                 }
             }
         };

@@ -4,11 +4,14 @@
 
 #import "SubHandler1.h"
 #import "FluttifyMessageCodec.h"
+#import <AMapLocationKit/AMapLocationKit.h>
+#import "AMapGeoFenceManagerDelegate_Anonymous.h"
+#import "AMapLocationManagerDelegate_Anonymous.h"
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
 // Dart端随机存取对象的容器
-extern NSMutableDictionary<NSNumber*, NSObject*>* HEAP;
+extern NSMutableDictionary<NSString*, NSObject*>* HEAP;
 // 日志打印开关
 extern BOOL enableLog;
 
@@ -16,6 +19,237 @@ extern BOOL enableLog;
 - (NSDictionary<NSString*, Handler>*) getSubHandler1 {
     __weak __typeof(self)weakSelf = self;
     return @{
+        @"AMapLocationManager::set_distanceFilter": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationManager::set_distanceFilter");
+            }
+        
+            // args
+            // jsonable arg
+            CLLocationDistance distanceFilter = [args[@"distanceFilter"] doubleValue];
+        
+            // ref
+            AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.distanceFilter = distanceFilter;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationManager::set_desiredAccuracy": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationManager::set_desiredAccuracy");
+            }
+        
+            // args
+            // jsonable arg
+            CLLocationAccuracy desiredAccuracy = [args[@"desiredAccuracy"] doubleValue];
+        
+            // ref
+            AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.desiredAccuracy = desiredAccuracy;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationManager::set_pausesLocationUpdatesAutomatically": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationManager::set_pausesLocationUpdatesAutomatically");
+            }
+        
+            // args
+            // jsonable arg
+            BOOL pausesLocationUpdatesAutomatically = [args[@"pausesLocationUpdatesAutomatically"] boolValue];
+        
+            // ref
+            AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.pausesLocationUpdatesAutomatically = pausesLocationUpdatesAutomatically;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationManager::set_allowsBackgroundLocationUpdates": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationManager::set_allowsBackgroundLocationUpdates");
+            }
+        
+            // args
+            // jsonable arg
+            BOOL allowsBackgroundLocationUpdates = [args[@"allowsBackgroundLocationUpdates"] boolValue];
+        
+            // ref
+            AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.allowsBackgroundLocationUpdates = allowsBackgroundLocationUpdates;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationManager::set_locationTimeout": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationManager::set_locationTimeout");
+            }
+        
+            // args
+            // jsonable arg
+            NSInteger locationTimeout = [args[@"locationTimeout"] longValue];
+        
+            // ref
+            AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.locationTimeout = locationTimeout;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationManager::set_reGeocodeTimeout": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationManager::set_reGeocodeTimeout");
+            }
+        
+            // args
+            // jsonable arg
+            NSInteger reGeocodeTimeout = [args[@"reGeocodeTimeout"] longValue];
+        
+            // ref
+            AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.reGeocodeTimeout = reGeocodeTimeout;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationManager::set_locatingWithReGeocode": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationManager::set_locatingWithReGeocode");
+            }
+        
+            // args
+            // jsonable arg
+            BOOL locatingWithReGeocode = [args[@"locatingWithReGeocode"] boolValue];
+        
+            // ref
+            AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.locatingWithReGeocode = locatingWithReGeocode;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationManager::set_reGeocodeLanguage": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationManager::set_reGeocodeLanguage");
+            }
+        
+            // args
+            // enum arg
+            AMapLocationReGeocodeLanguage reGeocodeLanguage = (AMapLocationReGeocodeLanguage) [args[@"reGeocodeLanguage"] integerValue];
+        
+            // ref
+            AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.reGeocodeLanguage = reGeocodeLanguage;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationManager::set_detectRiskOfFakeLocation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationManager::set_detectRiskOfFakeLocation");
+            }
+        
+            // args
+            // jsonable arg
+            BOOL detectRiskOfFakeLocation = [args[@"detectRiskOfFakeLocation"] boolValue];
+        
+            // ref
+            AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.detectRiskOfFakeLocation = detectRiskOfFakeLocation;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationManager::set_locationAccuracyMode": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationManager::set_locationAccuracyMode");
+            }
+        
+            // args
+            // enum arg
+            AMapLocationAccuracyMode locationAccuracyMode = (AMapLocationAccuracyMode) [args[@"locationAccuracyMode"] integerValue];
+        
+            // ref
+            AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.locationAccuracyMode = locationAccuracyMode;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationReGeocode::set_formattedAddress": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationReGeocode::set_formattedAddress");
+            }
+        
+            // args
+            // jsonable arg
+            NSString* formattedAddress = (NSString*) args[@"formattedAddress"];
+        
+            // ref
+            AMapLocationReGeocode* ref = (AMapLocationReGeocode*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.formattedAddress = formattedAddress;
+            methodResult(@"success");
+        },
+        
         @"AMapLocationReGeocode::set_country": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // print log
             if (enableLog) {
@@ -562,6 +796,48 @@ extern BOOL enableLog;
             methodResult(@"success");
         },
         
+        @"AMapLocationDistrictItem::set_districtCode": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationDistrictItem::set_districtCode");
+            }
+        
+            // args
+            // jsonable arg
+            NSString* districtCode = (NSString*) args[@"districtCode"];
+        
+            // ref
+            AMapLocationDistrictItem* ref = (AMapLocationDistrictItem*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.districtCode = districtCode;
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationDistrictItem::set_district": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // print log
+            if (enableLog) {
+                NSLog(@"AMapLocationDistrictItem::set_district");
+            }
+        
+            // args
+            // jsonable arg
+            NSString* district = (NSString*) args[@"district"];
+        
+            // ref
+            AMapLocationDistrictItem* ref = (AMapLocationDistrictItem*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
+        
+            ref.district = district;
+            methodResult(@"success");
+        },
+        
         @"AMapGeoFenceManager::set_activeAction_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
             for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
@@ -577,7 +853,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.activeAction = activeAction;
+                ref.activeAction = activeAction;;
                 methodResult(@"success");
             }
         
@@ -599,7 +875,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.pausesLocationUpdatesAutomatically = pausesLocationUpdatesAutomatically;
+                ref.pausesLocationUpdatesAutomatically = pausesLocationUpdatesAutomatically;;
                 methodResult(@"success");
             }
         
@@ -621,7 +897,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.allowsBackgroundLocationUpdates = allowsBackgroundLocationUpdates;
+                ref.allowsBackgroundLocationUpdates = allowsBackgroundLocationUpdates;;
                 methodResult(@"success");
             }
         
@@ -643,7 +919,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.detectRiskOfFakeLocation = detectRiskOfFakeLocation;
+                ref.detectRiskOfFakeLocation = detectRiskOfFakeLocation;;
                 methodResult(@"success");
             }
         
@@ -665,7 +941,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.notifyOnEntry = notifyOnEntry;
+                ref.notifyOnEntry = notifyOnEntry;;
                 methodResult(@"success");
             }
         
@@ -687,7 +963,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.notifyOnExit = notifyOnExit;
+                ref.notifyOnExit = notifyOnExit;;
                 methodResult(@"success");
             }
         
@@ -709,7 +985,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.fenceStatus = fenceStatus;
+                ref.fenceStatus = fenceStatus;;
                 methodResult(@"success");
             }
         
@@ -731,7 +1007,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.regionType = regionType;
+                ref.regionType = regionType;;
                 methodResult(@"success");
             }
         
@@ -753,7 +1029,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.currentLocation = currentLocation;
+                ref.currentLocation = currentLocation;;
                 methodResult(@"success");
             }
         
@@ -775,7 +1051,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.distanceFilter = distanceFilter;
+                ref.distanceFilter = distanceFilter;;
                 methodResult(@"success");
             }
         
@@ -797,7 +1073,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.desiredAccuracy = desiredAccuracy;
+                ref.desiredAccuracy = desiredAccuracy;;
                 methodResult(@"success");
             }
         
@@ -819,7 +1095,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.pausesLocationUpdatesAutomatically = pausesLocationUpdatesAutomatically;
+                ref.pausesLocationUpdatesAutomatically = pausesLocationUpdatesAutomatically;;
                 methodResult(@"success");
             }
         
@@ -841,7 +1117,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.allowsBackgroundLocationUpdates = allowsBackgroundLocationUpdates;
+                ref.allowsBackgroundLocationUpdates = allowsBackgroundLocationUpdates;;
                 methodResult(@"success");
             }
         
@@ -863,7 +1139,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.locationTimeout = locationTimeout;
+                ref.locationTimeout = locationTimeout;;
                 methodResult(@"success");
             }
         
@@ -885,7 +1161,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.reGeocodeTimeout = reGeocodeTimeout;
+                ref.reGeocodeTimeout = reGeocodeTimeout;;
                 methodResult(@"success");
             }
         
@@ -907,7 +1183,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.locatingWithReGeocode = locatingWithReGeocode;
+                ref.locatingWithReGeocode = locatingWithReGeocode;;
                 methodResult(@"success");
             }
         
@@ -929,7 +1205,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.reGeocodeLanguage = reGeocodeLanguage;
+                ref.reGeocodeLanguage = reGeocodeLanguage;;
                 methodResult(@"success");
             }
         
@@ -951,7 +1227,29 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.detectRiskOfFakeLocation = detectRiskOfFakeLocation;
+                ref.detectRiskOfFakeLocation = detectRiskOfFakeLocation;;
+                methodResult(@"success");
+            }
+        
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationManager::set_locationAccuracyMode_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
+        
+                // args
+                // enum arg
+                AMapLocationAccuracyMode locationAccuracyMode = (AMapLocationAccuracyMode) [args[@"locationAccuracyMode"] integerValue];
+        
+                // ref
+                AMapLocationManager* ref = (AMapLocationManager*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
+        
+                ref.locationAccuracyMode = locationAccuracyMode;;
                 methodResult(@"success");
             }
         
@@ -973,7 +1271,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.formattedAddress = formattedAddress;
+                ref.formattedAddress = formattedAddress;;
                 methodResult(@"success");
             }
         
@@ -995,7 +1293,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.country = country;
+                ref.country = country;;
                 methodResult(@"success");
             }
         
@@ -1017,7 +1315,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.province = province;
+                ref.province = province;;
                 methodResult(@"success");
             }
         
@@ -1039,7 +1337,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.city = city;
+                ref.city = city;;
                 methodResult(@"success");
             }
         
@@ -1061,7 +1359,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.district = district;
+                ref.district = district;;
                 methodResult(@"success");
             }
         
@@ -1083,7 +1381,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.township = township;
+                ref.township = township;;
                 methodResult(@"success");
             }
         
@@ -1105,7 +1403,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.neighborhood = neighborhood;
+                ref.neighborhood = neighborhood;;
                 methodResult(@"success");
             }
         
@@ -1127,7 +1425,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.building = building;
+                ref.building = building;;
                 methodResult(@"success");
             }
         
@@ -1149,7 +1447,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.citycode = citycode;
+                ref.citycode = citycode;;
                 methodResult(@"success");
             }
         
@@ -1171,7 +1469,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.adcode = adcode;
+                ref.adcode = adcode;;
                 methodResult(@"success");
             }
         
@@ -1193,7 +1491,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.street = street;
+                ref.street = street;;
                 methodResult(@"success");
             }
         
@@ -1215,7 +1513,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.number = number;
+                ref.number = number;;
                 methodResult(@"success");
             }
         
@@ -1237,7 +1535,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.POIName = POIName;
+                ref.POIName = POIName;;
                 methodResult(@"success");
             }
         
@@ -1259,7 +1557,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.AOIName = AOIName;
+                ref.AOIName = AOIName;;
                 methodResult(@"success");
             }
         
@@ -1281,7 +1579,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.latitude = latitude;
+                ref.latitude = latitude;;
                 methodResult(@"success");
             }
         
@@ -1303,7 +1601,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.longitude = longitude;
+                ref.longitude = longitude;;
                 methodResult(@"success");
             }
         
@@ -1325,7 +1623,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.pId = pId;
+                ref.pId = pId;;
                 methodResult(@"success");
             }
         
@@ -1347,7 +1645,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.name = name;
+                ref.name = name;;
                 methodResult(@"success");
             }
         
@@ -1369,7 +1667,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.type = type;
+                ref.type = type;;
                 methodResult(@"success");
             }
         
@@ -1391,7 +1689,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.typeCode = typeCode;
+                ref.typeCode = typeCode;;
                 methodResult(@"success");
             }
         
@@ -1413,7 +1711,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.address = address;
+                ref.address = address;;
                 methodResult(@"success");
             }
         
@@ -1435,7 +1733,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.location = location;
+                ref.location = location;;
                 methodResult(@"success");
             }
         
@@ -1457,7 +1755,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.tel = tel;
+                ref.tel = tel;;
                 methodResult(@"success");
             }
         
@@ -1479,7 +1777,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.province = province;
+                ref.province = province;;
                 methodResult(@"success");
             }
         
@@ -1501,7 +1799,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.city = city;
+                ref.city = city;;
                 methodResult(@"success");
             }
         
@@ -1523,7 +1821,7 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.district = district;
+                ref.district = district;;
                 methodResult(@"success");
             }
         
@@ -1545,7 +1843,51 @@ extern BOOL enableLog;
                     return;
                 }
         
-                ref.cityCode = cityCode;
+                ref.cityCode = cityCode;;
+                methodResult(@"success");
+            }
+        
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationDistrictItem::set_districtCode_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
+        
+                // args
+                // jsonable arg
+                NSString* districtCode = (NSString*) args[@"districtCode"];
+        
+                // ref
+                AMapLocationDistrictItem* ref = (AMapLocationDistrictItem*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
+        
+                ref.districtCode = districtCode;;
+                methodResult(@"success");
+            }
+        
+            methodResult(@"success");
+        },
+        
+        @"AMapLocationDistrictItem::set_district_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
+        
+                // args
+                // jsonable arg
+                NSString* district = (NSString*) args[@"district"];
+        
+                // ref
+                AMapLocationDistrictItem* ref = (AMapLocationDistrictItem*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
+        
+                ref.district = district;;
                 methodResult(@"success");
             }
         
@@ -2196,6 +2538,14 @@ extern BOOL enableLog;
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
         
+        @"AMapGeoFenceManagerDelegate::createAnonymous__": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            id<AMapGeoFenceManagerDelegate> __result__ = [[AMapGeoFenceManagerDelegate_Anonymous alloc] initWithFlutterPluginRegistrar:registrar];
+            methodResult(__result__);
+        },
+        @"AMapLocationManagerDelegate::createAnonymous__": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            id<AMapLocationManagerDelegate> __result__ = [[AMapLocationManagerDelegate_Anonymous alloc] initWithFlutterPluginRegistrar:registrar];
+            methodResult(__result__);
+        },
         @"AMapLocationCoordinateConvert::AMapLocationCoordinateConvert": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             if (enableLog) {
                 NSLog(@"fluttify-objc: AMapLocationCoordinateConvert::AMapLocationCoordinateConvert(%@)", args);

@@ -3,11 +3,10 @@
 //////////////////////////////////////////////////////////
 
 #import <Flutter/Flutter.h>
-#import <AMapLocationKit/AMapLocationKit.h>
 
 typedef void (^Handler)(NSObject <FlutterPluginRegistrar> *, id, FlutterResult);
 
-@interface AmapLocationFluttifyPlugin : NSObject<AMapGeoFenceManagerDelegate, AMapLocationManagerDelegate, FlutterPlugin>
+@interface AmapLocationFluttifyPlugin : NSObject<FlutterPlugin>
 
 - (instancetype) initWithFlutterPluginRegistrar: (NSObject <FlutterPluginRegistrar> *) registrar;
 

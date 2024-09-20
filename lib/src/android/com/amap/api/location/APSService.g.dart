@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
 class com_amap_api_location_APSService extends java_lang_Object  {
   //region constants
@@ -24,14 +25,24 @@ class com_amap_api_location_APSService extends java_lang_Object  {
 
   //region creators
   static Future<com_amap_api_location_APSService> create__() async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_APSService__', );
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod(
+      'ObjectFactory::createcom_amap_api_location_APSService__',
+    
+    );
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_APSService>(__result__)!;
   }
   
   static Future<List<com_amap_api_location_APSService>> create_batch__(int length) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_APSService>('ObjectFactory::create_batchcom_amap_api_location_APSService__', {'length': length});
+    assert(true);
+    final __result_batch__ = await  kAmapLocationFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchcom_amap_api_location_APSService__',
+      {'length': length}
+    );
+    return __result_batch__
+        ?.map((it) => AmapLocationFluttifyAndroidAs<com_amap_api_location_APSService>(it))
+        .where((element) => element !=null)
+        .cast<com_amap_api_location_APSService>()
+        .toList() ?? <com_amap_api_location_APSService>[];
   }
   
   //endregion
@@ -45,23 +56,6 @@ class com_amap_api_location_APSService extends java_lang_Object  {
   //endregion
 
   //region methods
-  
-  Future<void> onCreate__android_content_Context(android_content_Context var1) async {
-    // print log
-    if (fluttifyLogEnabled) {
-      debugPrint('fluttify-dart: com.amap.api.location.APSService@$refId::onCreate([])');
-    }
-  
-    // invoke native method
-    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.APSService::onCreate__android_content_Context', {"var1": var1, "__this__": this});
-  
-  
-    // handle native call
-  
-  
-    return __result__;
-  }
-  
   
   Future<void> onCreate() async {
     // print log
@@ -80,7 +74,7 @@ class com_amap_api_location_APSService extends java_lang_Object  {
   }
   
   
-  Future<int> onStartCommand(android_content_Intent var1, int var2, int var3) async {
+  Future<int?> onStartCommand(android_content_Intent var1, int var2, int var3) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.APSService@$refId::onStartCommand([\'var2\':$var2, \'var3\':$var3])');
@@ -121,7 +115,12 @@ class com_amap_api_location_APSService extends java_lang_Object  {
   }
 }
 
-extension com_amap_api_location_APSService_Batch on List<com_amap_api_location_APSService> {
+extension com_amap_api_location_APSService_Batch on List<com_amap_api_location_APSService?> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first?.refId;
+  }
+
   //region getters
   
   //endregion
@@ -132,55 +131,36 @@ extension com_amap_api_location_APSService_Batch on List<com_amap_api_location_A
 
   //region methods
   
-  Future<List<void>> onCreate__android_content_Context_batch(List<android_content_Context> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-  
-    // invoke native method
-    final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.APSService::onCreate__android_content_Context_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
-  
-  
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
-  }
-  
-  
   Future<List<void>> onCreate_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.APSService::onCreate_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  Future<List<int>> onStartCommand_batch(List<android_content_Intent> var1, List<int> var2, List<int> var3) async {
-    if (var1.length != var2.length || var2.length != var3.length) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<int?>> onStartCommand_batch(List<android_content_Intent> var1, List<int> var2, List<int> var3) async {
+    assert(var1.length == var2.length && var2.length == var3.length);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.APSService::onStartCommand_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "var2": var2[__i__], "var3": var3[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   
   Future<List<void>> onDestroy_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.APSService::onDestroy_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   //endregion

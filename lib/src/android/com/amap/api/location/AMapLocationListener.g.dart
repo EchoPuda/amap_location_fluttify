@@ -11,12 +11,47 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
-
+class _com_amap_api_location_AMapLocationListener_SUB extends java_lang_Object with com_amap_api_location_AMapLocationListener {}
 
 mixin com_amap_api_location_AMapLocationListener on java_lang_Object {
   
 
+  static com_amap_api_location_AMapLocationListener subInstance() => _com_amap_api_location_AMapLocationListener_SUB();
+
+  static Future<com_amap_api_location_AMapLocationListener> anonymous__() async {
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationListener::createAnonymous__');
+  
+    final __object__ = AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationListener>(__result__)!;
+  
+    // handle callback
+    MethodChannel('com.amap.api.location.AMapLocationListener::Callback@${__object__.refId}', kAmapLocationFluttifyMethodCodec)
+        .setMethodCallHandler((methodCall) async {
+          try {
+            final args = methodCall.arguments as Map;
+            switch (methodCall.method) {
+              case 'onLocationChanged':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.onLocationChanged?.call([\'var1\':${args['var1']}])');
+                }
+            
+                // handle the native call
+                __object__.onLocationChanged?.call(AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocation>(args['var1']));
+                break;
+              default:
+                throw MissingPluginException('方法${methodCall.method}未实现');
+                break;
+            }
+          } catch (e) {
+            debugPrint(e.toString());
+            rethrow;
+          }
+        });
+  
+    return __object__;
+  }
   
 
   @override
@@ -26,8 +61,7 @@ mixin com_amap_api_location_AMapLocationListener on java_lang_Object {
 
   
 
-  @mustCallSuper
-  Future<void> onLocationChanged(com_amap_api_location_AMapLocation var1) {}
+  Future<void> Function(com_amap_api_location_AMapLocation? var1)? onLocationChanged;
   
 }
 

@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
 class AMapLocationPOIItem extends NSObject with NSCoding, NSCopying {
   //region constants
@@ -24,65 +25,75 @@ class AMapLocationPOIItem extends NSObject with NSCoding, NSCopying {
 
   //region creators
   static Future<AMapLocationPOIItem> create__({ bool init = true /* ios only */ }) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationPOIItem', {'init': init});
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod(
+      'ObjectFactory::createAMapLocationPOIItem',
+      {'init': init}
+    );
+    return AmapLocationFluttifyIOSAs<AMapLocationPOIItem>(__result__)!;
   }
   
   static Future<List<AMapLocationPOIItem>> create_batch__(int length, { bool init = true /* ios only */ }) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    return kAmapLocationFluttifyChannel.invokeListMethod<AMapLocationPOIItem>('ObjectFactory::create_batchAMapLocationPOIItem', {'length': length, 'init': init});
+    assert(true);
+    final __result_batch__ = await  kAmapLocationFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchAMapLocationPOIItem',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        ?.map((it) => AmapLocationFluttifyIOSAs<AMapLocationPOIItem>(it))
+        .where((element) => element !=null)
+        .cast<AMapLocationPOIItem>()
+        .toList() ?? <AMapLocationPOIItem>[];
   }
   
   //endregion
 
   //region getters
-  Future<String> get_pId() async {
+  Future<String?> get_pId() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_pId", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_name() async {
+  Future<String?> get_name() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_name", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_type() async {
+  Future<String?> get_type() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_type", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_typeCode() async {
+  Future<String?> get_typeCode() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_typeCode", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_address() async {
+  Future<String?> get_address() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_address", {'__this__': this});
     return __result__;
   }
   
-  Future<AMapLocationPoint> get_location() async {
+  Future<AMapLocationPoint?> get_location() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_location", {'__this__': this});
-    return __result__;
+    return AmapLocationFluttifyIOSAs<AMapLocationPoint>(__result__);
   }
   
-  Future<String> get_tel() async {
+  Future<String?> get_tel() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_tel", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_province() async {
+  Future<String?> get_province() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_province", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_city() async {
+  Future<String?> get_city() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_city", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_district() async {
+  Future<String?> get_district() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_district", {'__this__': this});
     return __result__;
   }
@@ -92,62 +103,42 @@ class AMapLocationPOIItem extends NSObject with NSCoding, NSCopying {
   //region setters
   Future<void> set_pId(String pId) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationPOIItem::set_pId', <String, dynamic>{'__this__': this, "pId": pId});
-  
-  
   }
   
   Future<void> set_name(String name) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationPOIItem::set_name', <String, dynamic>{'__this__': this, "name": name});
-  
-  
   }
   
   Future<void> set_type(String type) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationPOIItem::set_type', <String, dynamic>{'__this__': this, "type": type});
-  
-  
   }
   
   Future<void> set_typeCode(String typeCode) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationPOIItem::set_typeCode', <String, dynamic>{'__this__': this, "typeCode": typeCode});
-  
-  
   }
   
   Future<void> set_address(String address) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationPOIItem::set_address', <String, dynamic>{'__this__': this, "address": address});
-  
-  
   }
   
   Future<void> set_location(AMapLocationPoint location) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationPOIItem::set_location', <String, dynamic>{'__this__': this, "location": location});
-  
-  
   }
   
   Future<void> set_tel(String tel) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationPOIItem::set_tel', <String, dynamic>{'__this__': this, "tel": tel});
-  
-  
   }
   
   Future<void> set_province(String province) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationPOIItem::set_province', <String, dynamic>{'__this__': this, "province": province});
-  
-  
   }
   
   Future<void> set_city(String city) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationPOIItem::set_city', <String, dynamic>{'__this__': this, "city": city});
-  
-  
   }
   
   Future<void> set_district(String district) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationPOIItem::set_district', <String, dynamic>{'__this__': this, "district": district});
-  
-  
   }
   
   //endregion
@@ -162,56 +153,61 @@ class AMapLocationPOIItem extends NSObject with NSCoding, NSCopying {
   }
 }
 
-extension AMapLocationPOIItem_Batch on List<AMapLocationPOIItem> {
+extension AMapLocationPOIItem_Batch on List<AMapLocationPOIItem?> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first?.refId;
+  }
+
   //region getters
-  Future<List<String>> get_pId_batch() async {
+  Future<List<String?>> get_pId_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_pId_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_name_batch() async {
+  Future<List<String?>> get_name_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_name_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_type_batch() async {
+  Future<List<String?>> get_type_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_type_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_typeCode_batch() async {
+  Future<List<String?>> get_typeCode_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_typeCode_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_address_batch() async {
+  Future<List<String?>> get_address_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_address_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<AMapLocationPoint>> get_location_batch() async {
+  Future<List<AMapLocationPoint?>> get_location_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_location_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<AMapLocationPoint>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyIOSAs<AMapLocationPoint>(__result__)).cast<AMapLocationPoint?>().toList();
   }
   
-  Future<List<String>> get_tel_batch() async {
+  Future<List<String?>> get_tel_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_tel_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_province_batch() async {
+  Future<List<String?>> get_province_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_province_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_city_batch() async {
+  Future<List<String?>> get_city_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_city_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_district_batch() async {
+  Future<List<String?>> get_district_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationPOIItem::get_district_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
   //endregion

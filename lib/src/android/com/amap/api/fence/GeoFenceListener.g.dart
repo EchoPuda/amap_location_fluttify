@@ -11,12 +11,47 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
-
+class _com_amap_api_fence_GeoFenceListener_SUB extends java_lang_Object with com_amap_api_fence_GeoFenceListener {}
 
 mixin com_amap_api_fence_GeoFenceListener on java_lang_Object {
   
 
+  static com_amap_api_fence_GeoFenceListener subInstance() => _com_amap_api_fence_GeoFenceListener_SUB();
+
+  static Future<com_amap_api_fence_GeoFenceListener> anonymous__() async {
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceListener::createAnonymous__');
+  
+    final __object__ = AmapLocationFluttifyAndroidAs<com_amap_api_fence_GeoFenceListener>(__result__)!;
+  
+    // handle callback
+    MethodChannel('com.amap.api.fence.GeoFenceListener::Callback@${__object__.refId}', kAmapLocationFluttifyMethodCodec)
+        .setMethodCallHandler((methodCall) async {
+          try {
+            final args = methodCall.arguments as Map;
+            switch (methodCall.method) {
+              case 'onGeoFenceCreateFinished__':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: __object__.onGeoFenceCreateFinished?.call([\'var1\':${args['var1']}, \'var2\':${args['var2']}, \'var3\':${args['var3']}])');
+                }
+            
+                // handle the native call
+                __object__.onGeoFenceCreateFinished?.call((args['var1'] as List? ?? []).map((it) => AmapLocationFluttifyAndroidAs<com_amap_api_fence_GeoFence>(it)).where((e) => e != null).cast<com_amap_api_fence_GeoFence>().toList(), args['var2'], args['var3']);
+                break;
+              default:
+                throw MissingPluginException('方法${methodCall.method}未实现');
+                break;
+            }
+          } catch (e) {
+            debugPrint(e.toString());
+            rethrow;
+          }
+        });
+  
+    return __object__;
+  }
   
 
   @override
@@ -26,8 +61,7 @@ mixin com_amap_api_fence_GeoFenceListener on java_lang_Object {
 
   
 
-  @mustCallSuper
-  Future<void> onGeoFenceCreateFinished(List<com_amap_api_fence_GeoFence> var1, int var2, String var3) {}
+  Future<void> Function(List<com_amap_api_fence_GeoFence>? var1, int? var2, String? var3)? onGeoFenceCreateFinished;
   
 }
 

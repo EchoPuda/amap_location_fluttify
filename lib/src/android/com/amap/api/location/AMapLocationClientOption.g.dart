@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
 class com_amap_api_location_AMapLocationClientOption extends java_lang_Object with android_os_Parcelable {
   //region constants
@@ -24,25 +25,35 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
 
   //region creators
   static Future<com_amap_api_location_AMapLocationClientOption> create__() async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_AMapLocationClientOption__', );
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod(
+      'ObjectFactory::createcom_amap_api_location_AMapLocationClientOption__',
+    
+    );
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)!;
   }
   
   static Future<List<com_amap_api_location_AMapLocationClientOption>> create_batch__(int length) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_AMapLocationClientOption>('ObjectFactory::create_batchcom_amap_api_location_AMapLocationClientOption__', {'length': length});
+    assert(true);
+    final __result_batch__ = await  kAmapLocationFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchcom_amap_api_location_AMapLocationClientOption__',
+      {'length': length}
+    );
+    return __result_batch__
+        ?.map((it) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(it))
+        .where((element) => element !=null)
+        .cast<com_amap_api_location_AMapLocationClientOption>()
+        .toList() ?? <com_amap_api_location_AMapLocationClientOption>[];
   }
   
   //endregion
 
   //region getters
-  static Future<bool> get_static_OPEN_ALWAYS_SCAN_WIFI() async {
+  static Future<bool?> get_static_OPEN_ALWAYS_SCAN_WIFI() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("com.amap.api.location.AMapLocationClientOption::get_OPEN_ALWAYS_SCAN_WIFI", );
     return __result__;
   }
   
-  static Future<int> get_static_SCAN_WIFI_INTERVAL() async {
+  static Future<int?> get_static_SCAN_WIFI_INTERVAL() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("com.amap.api.location.AMapLocationClientOption::get_SCAN_WIFI_INTERVAL", );
     return __result__;
   }
@@ -55,7 +66,109 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
 
   //region methods
   
-  static Future<String> getAPIKEY() async {
+  Future<void> setCacheCallBack(bool var1) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setCacheCallBack([\'var1\':$var1])');
+    }
+  
+    // invoke native method
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setCacheCallBack', {"var1": var1, "__this__": this});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
+  
+  
+  Future<bool?> getCacheCallBack() async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getCacheCallBack([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getCacheCallBack', {"__this__": this});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
+  
+  
+  Future<void> setCacheCallBackTime(int var1) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setCacheCallBackTime([\'var1\':$var1])');
+    }
+  
+    // invoke native method
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setCacheCallBackTime', {"var1": var1, "__this__": this});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
+  
+  
+  Future<int?> getCacheCallBackTime() async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getCacheCallBackTime([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getCacheCallBackTime', {"__this__": this});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
+  
+  
+  Future<void> setCacheTimeOut(int var1) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setCacheTimeOut([\'var1\':$var1])');
+    }
+  
+    // invoke native method
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setCacheTimeOut', {"var1": var1, "__this__": this});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
+  
+  
+  Future<int?> getCacheTimeOut() async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getCacheTimeOut([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getCacheTimeOut', {"__this__": this});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
+  
+  
+  static Future<String?> getAPIKEY() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption::getAPIKEY([])');
@@ -72,7 +185,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<bool> isMockEnable() async {
+  Future<bool?> isMockEnable() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isMockEnable([])');
@@ -89,7 +202,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setMockEnable(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setMockEnable(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setMockEnable([\'var1\':$var1])');
@@ -102,11 +215,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<int> getInterval() async {
+  Future<int?> getInterval() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getInterval([])');
@@ -123,7 +236,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setInterval(int var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setInterval(int var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setInterval([\'var1\':$var1])');
@@ -136,11 +249,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<bool> isOnceLocation() async {
+  Future<bool?> isOnceLocation() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isOnceLocation([])');
@@ -157,7 +270,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setOnceLocation(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setOnceLocation(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setOnceLocation([\'var1\':$var1])');
@@ -170,11 +283,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<bool> isNeedAddress() async {
+  Future<bool?> isNeedAddress() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isNeedAddress([])');
@@ -191,7 +304,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setNeedAddress(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setNeedAddress(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setNeedAddress([\'var1\':$var1])');
@@ -204,11 +317,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<bool> isWifiActiveScan() async {
+  Future<bool?> isWifiActiveScan() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isWifiActiveScan([])');
@@ -225,7 +338,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setWifiActiveScan(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setWifiActiveScan(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setWifiActiveScan([\'var1\':$var1])');
@@ -238,11 +351,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<bool> isWifiScan() async {
+  Future<bool?> isWifiScan() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isWifiScan([])');
@@ -259,7 +372,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setWifiScan(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setWifiScan(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setWifiScan([\'var1\':$var1])');
@@ -272,11 +385,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption_AMapLocationMode> getLocationMode() async {
+  Future<com_amap_api_location_AMapLocationClientOption_AMapLocationMode?> getLocationMode() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getLocationMode([])');
@@ -293,7 +406,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setLocationMode(com_amap_api_location_AMapLocationClientOption_AMapLocationMode var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setLocationMode(com_amap_api_location_AMapLocationClientOption_AMapLocationMode var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setLocationMode([])');
@@ -306,11 +419,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption_AMapLocationProtocol> getLocationProtocol() async {
+  Future<com_amap_api_location_AMapLocationClientOption_AMapLocationProtocol?> getLocationProtocol() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getLocationProtocol([])');
@@ -344,7 +457,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<bool> isKillProcess() async {
+  Future<bool?> isKillProcess() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isKillProcess([])');
@@ -361,7 +474,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setKillProcess(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setKillProcess(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setKillProcess([\'var1\':$var1])');
@@ -374,11 +487,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<bool> isGpsFirst() async {
+  Future<bool?> isGpsFirst() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isGpsFirst([])');
@@ -395,7 +508,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setGpsFirst(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setGpsFirst(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setGpsFirst([\'var1\':$var1])');
@@ -408,11 +521,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setGpsFirstTimeout(int var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setGpsFirstTimeout(int var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setGpsFirstTimeout([\'var1\':$var1])');
@@ -425,11 +538,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<int> getGpsFirstTimeout() async {
+  Future<int?> getGpsFirstTimeout() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getGpsFirstTimeout([])');
@@ -446,7 +559,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> clone() async {
+  Future<com_amap_api_location_AMapLocationClientOption?> clone() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::clone([])');
@@ -459,11 +572,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<int> getHttpTimeOut() async {
+  Future<int?> getHttpTimeOut() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getHttpTimeOut([])');
@@ -480,7 +593,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setHttpTimeOut(int var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setHttpTimeOut(int var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setHttpTimeOut([\'var1\':$var1])');
@@ -493,11 +606,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<bool> isOffset() async {
+  Future<bool?> isOffset() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isOffset([])');
@@ -514,7 +627,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setOffset(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setOffset(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setOffset([\'var1\':$var1])');
@@ -527,11 +640,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<bool> isLocationCacheEnable() async {
+  Future<bool?> isLocationCacheEnable() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isLocationCacheEnable([])');
@@ -548,7 +661,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setLocationCacheEnable(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setLocationCacheEnable(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setLocationCacheEnable([\'var1\':$var1])');
@@ -561,11 +674,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<bool> isOnceLocationLatest() async {
+  Future<bool?> isOnceLocationLatest() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isOnceLocationLatest([])');
@@ -582,7 +695,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setOnceLocationLatest(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setOnceLocationLatest(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setOnceLocationLatest([\'var1\':$var1])');
@@ -595,11 +708,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<bool> isSensorEnable() async {
+  Future<bool?> isSensorEnable() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::isSensorEnable([])');
@@ -616,7 +729,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setSensorEnable(bool var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setSensorEnable(bool var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setSensorEnable([\'var1\':$var1])');
@@ -629,11 +742,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setLastLocationLifeCycle(int var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setLastLocationLifeCycle(int var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setLastLocationLifeCycle([\'var1\':$var1])');
@@ -646,11 +759,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<int> getLastLocationLifeCycle() async {
+  Future<int?> getLastLocationLifeCycle() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getLastLocationLifeCycle([])');
@@ -667,7 +780,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption_GeoLanguage> getGeoLanguage() async {
+  Future<com_amap_api_location_AMapLocationClientOption_GeoLanguage?> getGeoLanguage() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getGeoLanguage([])');
@@ -684,7 +797,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setGeoLanguage(com_amap_api_location_AMapLocationClientOption_GeoLanguage var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setGeoLanguage(com_amap_api_location_AMapLocationClientOption_GeoLanguage var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setGeoLanguage([])');
@@ -697,7 +810,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
@@ -718,7 +831,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  static Future<bool> isDownloadCoordinateConvertLibrary() async {
+  static Future<bool?> isDownloadCoordinateConvertLibrary() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption::isDownloadCoordinateConvertLibrary([])');
@@ -735,7 +848,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<double> getDeviceModeDistanceFilter() async {
+  Future<double?> getDeviceModeDistanceFilter() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getDeviceModeDistanceFilter([])');
@@ -752,7 +865,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setDeviceModeDistanceFilter(double var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setDeviceModeDistanceFilter(double var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setDeviceModeDistanceFilter([\'var1\':$var1])');
@@ -765,11 +878,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption> setLocationPurpose(com_amap_api_location_AMapLocationClientOption_AMapLocationPurpose var1) async {
+  Future<com_amap_api_location_AMapLocationClientOption?> setLocationPurpose(com_amap_api_location_AMapLocationClientOption_AMapLocationPurpose var1) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::setLocationPurpose([])');
@@ -782,11 +895,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
     // handle native call
   
   
-    return __result__;
+    return AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__);
   }
   
   
-  Future<com_amap_api_location_AMapLocationClientOption_AMapLocationPurpose> getLocationPurpose() async {
+  Future<com_amap_api_location_AMapLocationClientOption_AMapLocationPurpose?> getLocationPurpose() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getLocationPurpose([])');
@@ -803,7 +916,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  static Future<bool> isOpenAlwaysScanWifi() async {
+  static Future<bool?> isOpenAlwaysScanWifi() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption::isOpenAlwaysScanWifi([])');
@@ -854,7 +967,7 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
   
   
-  Future<int> getScanWifiInterval() async {
+  Future<int?> getScanWifiInterval() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.location.AMapLocationClientOption@$refId::getScanWifiInterval([])');
@@ -878,16 +991,21 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   }
 }
 
-extension com_amap_api_location_AMapLocationClientOption_Batch on List<com_amap_api_location_AMapLocationClientOption> {
+extension com_amap_api_location_AMapLocationClientOption_Batch on List<com_amap_api_location_AMapLocationClientOption?> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first?.refId;
+  }
+
   //region getters
-  Future<List<bool>> get_static_OPEN_ALWAYS_SCAN_WIFI_batch() async {
+  Future<List<bool?>> get_static_OPEN_ALWAYS_SCAN_WIFI_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("com.amap.api.location.AMapLocationClientOption::get_OPEN_ALWAYS_SCAN_WIFI_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
-  Future<List<int>> get_static_SCAN_WIFI_INTERVAL_batch() async {
+  Future<List<int?>> get_static_SCAN_WIFI_INTERVAL_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("com.amap.api.location.AMapLocationClientOption::get_SCAN_WIFI_INTERVAL_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   //endregion
@@ -898,627 +1016,597 @@ extension com_amap_api_location_AMapLocationClientOption_Batch on List<com_amap_
 
   //region methods
   
-  static Future<List<String>> getAPIKEY_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<void>> setCacheCallBack_batch(List<bool> var1) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setCacheCallBack_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
+  }
+  
+  
+  Future<List<bool?>> getCacheCallBack_batch() async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getCacheCallBack_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
+  }
+  
+  
+  Future<List<void>> setCacheCallBackTime_batch(List<int> var1) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setCacheCallBackTime_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
+  }
+  
+  
+  Future<List<int?>> getCacheCallBackTime_batch() async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getCacheCallBackTime_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
+  }
+  
+  
+  Future<List<void>> setCacheTimeOut_batch(List<int> var1) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setCacheTimeOut_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
+  }
+  
+  
+  Future<List<int?>> getCacheTimeOut_batch() async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getCacheTimeOut_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
+  }
+  
+  
+  static Future<List<String?>> getAPIKEY_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getAPIKEY_batch', );
   
   
-    return (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
   
-  Future<List<bool>> isMockEnable_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isMockEnable_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isMockEnable_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setMockEnable_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setMockEnable_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setMockEnable_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<int>> getInterval_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<int?>> getInterval_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getInterval_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setInterval_batch(List<int> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setInterval_batch(List<int> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setInterval_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<bool>> isOnceLocation_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isOnceLocation_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isOnceLocation_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setOnceLocation_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setOnceLocation_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setOnceLocation_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<bool>> isNeedAddress_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isNeedAddress_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isNeedAddress_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setNeedAddress_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setNeedAddress_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setNeedAddress_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<bool>> isWifiActiveScan_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isWifiActiveScan_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isWifiActiveScan_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setWifiActiveScan_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setWifiActiveScan_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setWifiActiveScan_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<bool>> isWifiScan_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isWifiScan_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isWifiScan_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setWifiScan_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setWifiScan_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setWifiScan_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption_AMapLocationMode>> getLocationMode_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption_AMapLocationMode?>> getLocationMode_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getLocationMode_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption_AMapLocationMode>().map((__result__) => (__result__ as int).tocom_amap_api_location_AMapLocationClientOption_AMapLocationMode()).toList();
+    return (resultBatch as List).map((__result__) => (__result__ as int).tocom_amap_api_location_AMapLocationClientOption_AMapLocationMode()).cast<com_amap_api_location_AMapLocationClientOption_AMapLocationMode?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setLocationMode_batch(List<com_amap_api_location_AMapLocationClientOption_AMapLocationMode> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setLocationMode_batch(List<com_amap_api_location_AMapLocationClientOption_AMapLocationMode> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setLocationMode_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__].toValue(), "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption_AMapLocationProtocol>> getLocationProtocol_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption_AMapLocationProtocol?>> getLocationProtocol_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getLocationProtocol_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption_AMapLocationProtocol>().map((__result__) => (__result__ as int).tocom_amap_api_location_AMapLocationClientOption_AMapLocationProtocol()).toList();
+    return (resultBatch as List).map((__result__) => (__result__ as int).tocom_amap_api_location_AMapLocationClientOption_AMapLocationProtocol()).cast<com_amap_api_location_AMapLocationClientOption_AMapLocationProtocol?>().toList();
   }
   
   
   static Future<List<void>> setLocationProtocol_batch(List<com_amap_api_location_AMapLocationClientOption_AMapLocationProtocol> var0) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setLocationProtocol_batch', [for (int __i__ = 0; __i__ < var0.length; __i__++) {"var0": var0[__i__].toValue()}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  Future<List<bool>> isKillProcess_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isKillProcess_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isKillProcess_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setKillProcess_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setKillProcess_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setKillProcess_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<bool>> isGpsFirst_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isGpsFirst_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isGpsFirst_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setGpsFirst_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setGpsFirst_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setGpsFirst_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setGpsFirstTimeout_batch(List<int> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setGpsFirstTimeout_batch(List<int> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setGpsFirstTimeout_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<int>> getGpsFirstTimeout_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<int?>> getGpsFirstTimeout_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getGpsFirstTimeout_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> clone_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> clone_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::clone_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<int>> getHttpTimeOut_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<int?>> getHttpTimeOut_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getHttpTimeOut_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setHttpTimeOut_batch(List<int> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setHttpTimeOut_batch(List<int> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setHttpTimeOut_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<bool>> isOffset_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isOffset_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isOffset_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setOffset_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setOffset_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setOffset_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<bool>> isLocationCacheEnable_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isLocationCacheEnable_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isLocationCacheEnable_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setLocationCacheEnable_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setLocationCacheEnable_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setLocationCacheEnable_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<bool>> isOnceLocationLatest_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isOnceLocationLatest_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isOnceLocationLatest_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setOnceLocationLatest_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setOnceLocationLatest_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setOnceLocationLatest_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<bool>> isSensorEnable_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<bool?>> isSensorEnable_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isSensorEnable_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setSensorEnable_batch(List<bool> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setSensorEnable_batch(List<bool> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setSensorEnable_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setLastLocationLifeCycle_batch(List<int> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setLastLocationLifeCycle_batch(List<int> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setLastLocationLifeCycle_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<int>> getLastLocationLifeCycle_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<int?>> getLastLocationLifeCycle_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getLastLocationLifeCycle_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption_GeoLanguage>> getGeoLanguage_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption_GeoLanguage?>> getGeoLanguage_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getGeoLanguage_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption_GeoLanguage>().map((__result__) => (__result__ as int).tocom_amap_api_location_AMapLocationClientOption_GeoLanguage()).toList();
+    return (resultBatch as List).map((__result__) => (__result__ as int).tocom_amap_api_location_AMapLocationClientOption_GeoLanguage()).cast<com_amap_api_location_AMapLocationClientOption_GeoLanguage?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setGeoLanguage_batch(List<com_amap_api_location_AMapLocationClientOption_GeoLanguage> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setGeoLanguage_batch(List<com_amap_api_location_AMapLocationClientOption_GeoLanguage> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setGeoLanguage_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__].toValue(), "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
   static Future<List<void>> setDownloadCoordinateConvertLibrary_batch(List<bool> var0) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setDownloadCoordinateConvertLibrary_batch', [for (int __i__ = 0; __i__ < var0.length; __i__++) {"var0": var0[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  static Future<List<bool>> isDownloadCoordinateConvertLibrary_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  static Future<List<bool?>> isDownloadCoordinateConvertLibrary_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isDownloadCoordinateConvertLibrary_batch', );
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<double>> getDeviceModeDistanceFilter_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<double?>> getDeviceModeDistanceFilter_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getDeviceModeDistanceFilter_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<double>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setDeviceModeDistanceFilter_batch(List<double> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setDeviceModeDistanceFilter_batch(List<double> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setDeviceModeDistanceFilter_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption>> setLocationPurpose_batch(List<com_amap_api_location_AMapLocationClientOption_AMapLocationPurpose> var1) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption?>> setLocationPurpose_batch(List<com_amap_api_location_AMapLocationClientOption_AMapLocationPurpose> var1) async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setLocationPurpose_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"var1": var1[__i__].toValue(), "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => AmapLocationFluttifyAndroidAs<com_amap_api_location_AMapLocationClientOption>(__result__)).cast<com_amap_api_location_AMapLocationClientOption?>().toList();
   }
   
   
-  Future<List<com_amap_api_location_AMapLocationClientOption_AMapLocationPurpose>> getLocationPurpose_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<com_amap_api_location_AMapLocationClientOption_AMapLocationPurpose?>> getLocationPurpose_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getLocationPurpose_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<com_amap_api_location_AMapLocationClientOption_AMapLocationPurpose>().map((__result__) => (__result__ as int).tocom_amap_api_location_AMapLocationClientOption_AMapLocationPurpose()).toList();
+    return (resultBatch as List).map((__result__) => (__result__ as int).tocom_amap_api_location_AMapLocationClientOption_AMapLocationPurpose()).cast<com_amap_api_location_AMapLocationClientOption_AMapLocationPurpose?>().toList();
   }
   
   
-  static Future<List<bool>> isOpenAlwaysScanWifi_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  static Future<List<bool?>> isOpenAlwaysScanWifi_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::isOpenAlwaysScanWifi_batch', );
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
   static Future<List<void>> setOpenAlwaysScanWifi_batch(List<bool> var0) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setOpenAlwaysScanWifi_batch', [for (int __i__ = 0; __i__ < var0.length; __i__++) {"var0": var0[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   static Future<List<void>> setScanWifiInterval_batch(List<int> var0) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::setScanWifiInterval_batch', [for (int __i__ = 0; __i__ < var0.length; __i__++) {"var0": var0[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
-  Future<List<int>> getScanWifiInterval_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  Future<List<int?>> getScanWifiInterval_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.location.AMapLocationClientOption::getScanWifiInterval_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   //endregion

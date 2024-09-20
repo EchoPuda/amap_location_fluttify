@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
+import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 
 class AMapLocationManager extends NSObject  {
   //region constants
@@ -24,252 +25,131 @@ class AMapLocationManager extends NSObject  {
 
   //region creators
   static Future<AMapLocationManager> create__({ bool init = true /* ios only */ }) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationManager', {'init': init});
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod(
+      'ObjectFactory::createAMapLocationManager',
+      {'init': init}
+    );
+    return AmapLocationFluttifyIOSAs<AMapLocationManager>(__result__)!;
   }
   
   static Future<List<AMapLocationManager>> create_batch__(int length, { bool init = true /* ios only */ }) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    return kAmapLocationFluttifyChannel.invokeListMethod<AMapLocationManager>('ObjectFactory::create_batchAMapLocationManager', {'length': length, 'init': init});
+    assert(true);
+    final __result_batch__ = await  kAmapLocationFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchAMapLocationManager',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        ?.map((it) => AmapLocationFluttifyIOSAs<AMapLocationManager>(it))
+        .where((element) => element !=null)
+        .cast<AMapLocationManager>()
+        .toList() ?? <AMapLocationManager>[];
   }
   
   //endregion
 
   //region getters
-  Future<double> get_distanceFilter() async {
+  Future<double?> get_distanceFilter() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_distanceFilter", {'__this__': this});
     return __result__;
   }
   
-  Future<double> get_desiredAccuracy() async {
+  Future<double?> get_desiredAccuracy() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_desiredAccuracy", {'__this__': this});
     return __result__;
   }
   
-  Future<bool> get_pausesLocationUpdatesAutomatically() async {
+  Future<bool?> get_pausesLocationUpdatesAutomatically() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_pausesLocationUpdatesAutomatically", {'__this__': this});
     return __result__;
   }
   
-  Future<bool> get_allowsBackgroundLocationUpdates() async {
+  Future<bool?> get_allowsBackgroundLocationUpdates() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_allowsBackgroundLocationUpdates", {'__this__': this});
     return __result__;
   }
   
-  Future<int> get_locationTimeout() async {
+  Future<int?> get_locationTimeout() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_locationTimeout", {'__this__': this});
     return __result__;
   }
   
-  Future<int> get_reGeocodeTimeout() async {
+  Future<int?> get_reGeocodeTimeout() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_reGeocodeTimeout", {'__this__': this});
     return __result__;
   }
   
-  Future<bool> get_locatingWithReGeocode() async {
+  Future<bool?> get_locatingWithReGeocode() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_locatingWithReGeocode", {'__this__': this});
     return __result__;
   }
   
-  Future<AMapLocationReGeocodeLanguage> get_reGeocodeLanguage() async {
+  Future<AMapLocationReGeocodeLanguage?> get_reGeocodeLanguage() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_reGeocodeLanguage", {'__this__': this});
     return (__result__ as int).toAMapLocationReGeocodeLanguage();
   }
   
-  Future<bool> get_detectRiskOfFakeLocation() async {
+  Future<bool?> get_detectRiskOfFakeLocation() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_detectRiskOfFakeLocation", {'__this__': this});
     return __result__;
+  }
+  
+  Future<AMapLocationAccuracyMode?> get_locationAccuracyMode() async {
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_locationAccuracyMode", {'__this__': this});
+    return (__result__ as int).toAMapLocationAccuracyMode();
   }
   
   //endregion
 
   //region setters
   Future<void> set_delegate(AMapLocationManagerDelegate delegate) async {
-    await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_delegate', <String, dynamic>{'__this__': this, });
-  
-    MethodChannel('AMapLocationManagerDelegate::Callback', kAmapLocationFluttifyMethodCodec)
-      .setMethodCallHandler((methodCall) async {
-        try {
-          final args = methodCall.arguments as Map;
-          switch (methodCall.method) {
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_doRequireLocationAuth':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_doRequireLocationAuth([\'manager\':${args['manager']}, \'locationManager\':${args['locationManager']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_doRequireLocationAuth(args['manager'], args['locationManager']);
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_didFailWithError':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_didFailWithError([\'manager\':${args['manager']}, \'error\':${args['error']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_didFailWithError(args['manager'], args['error']);
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_didUpdateLocation':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_didUpdateLocation([\'manager\':${args['manager']}, \'location\':${args['location']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_didUpdateLocation(args['manager'], args['location']);
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_didUpdateLocation_reGeocode':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_didUpdateLocation_reGeocode([\'manager\':${args['manager']}, \'location\':${args['location']}, \'reGeocode\':${args['reGeocode']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_didUpdateLocation_reGeocode(args['manager'], args['location'], args['reGeocode']);
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_didChangeAuthorizationStatus':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_didChangeAuthorizationStatus([\'manager\':${args['manager']}, \'status\':${args['status']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_didChangeAuthorizationStatus(args['manager'], (args['status'] as int).toCLAuthorizationStatus());
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManagerShouldDisplayHeadingCalibration':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManagerShouldDisplayHeadingCalibration([\'manager\':${args['manager']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManagerShouldDisplayHeadingCalibration(args['manager']);
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_didUpdateHeading':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_didUpdateHeading([\'manager\':${args['manager']}, \'newHeading\':${args['newHeading']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_didUpdateHeading(args['manager'], args['newHeading']);
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_didStartMonitoringForRegion':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_didStartMonitoringForRegion([\'manager\':${args['manager']}, \'region\':${args['region']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_didStartMonitoringForRegion(args['manager'], args['region']);
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_didEnterRegion':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_didEnterRegion([\'manager\':${args['manager']}, \'region\':${args['region']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_didEnterRegion(args['manager'], args['region']);
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_didExitRegion':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_didExitRegion([\'manager\':${args['manager']}, \'region\':${args['region']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_didExitRegion(args['manager'], args['region']);
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_didDetermineState_forRegion':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_didDetermineState_forRegion([\'manager\':${args['manager']}, \'state\':${args['state']}, \'region\':${args['region']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_didDetermineState_forRegion(args['manager'], (args['state'] as int).toAMapLocationRegionState(), args['region']);
-              break;
-            case 'Callback::AMapLocationManagerDelegate::amapLocationManager_monitoringDidFailForRegion_withError':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: amapLocationManager_monitoringDidFailForRegion_withError([\'manager\':${args['manager']}, \'region\':${args['region']}, \'error\':${args['error']}])');
-              }
-          
-              // handle the native call
-              delegate?.amapLocationManager_monitoringDidFailForRegion_withError(args['manager'], args['region'], args['error']);
-              break;
-            default:
-              break;
-          }
-        } catch (e) {
-          debugPrint(e);
-          rethrow;
-        }
-      });
+    await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_delegate', <String, dynamic>{'__this__': this, "delegate": delegate});
   }
   
   Future<void> set_distanceFilter(double distanceFilter) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_distanceFilter', <String, dynamic>{'__this__': this, "distanceFilter": distanceFilter});
-  
-  
   }
   
   Future<void> set_desiredAccuracy(double desiredAccuracy) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_desiredAccuracy', <String, dynamic>{'__this__': this, "desiredAccuracy": desiredAccuracy});
-  
-  
   }
   
   Future<void> set_pausesLocationUpdatesAutomatically(bool pausesLocationUpdatesAutomatically) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_pausesLocationUpdatesAutomatically', <String, dynamic>{'__this__': this, "pausesLocationUpdatesAutomatically": pausesLocationUpdatesAutomatically});
-  
-  
   }
   
   Future<void> set_allowsBackgroundLocationUpdates(bool allowsBackgroundLocationUpdates) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_allowsBackgroundLocationUpdates', <String, dynamic>{'__this__': this, "allowsBackgroundLocationUpdates": allowsBackgroundLocationUpdates});
-  
-  
   }
   
   Future<void> set_locationTimeout(int locationTimeout) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_locationTimeout', <String, dynamic>{'__this__': this, "locationTimeout": locationTimeout});
-  
-  
   }
   
   Future<void> set_reGeocodeTimeout(int reGeocodeTimeout) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_reGeocodeTimeout', <String, dynamic>{'__this__': this, "reGeocodeTimeout": reGeocodeTimeout});
-  
-  
   }
   
   Future<void> set_locatingWithReGeocode(bool locatingWithReGeocode) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_locatingWithReGeocode', <String, dynamic>{'__this__': this, "locatingWithReGeocode": locatingWithReGeocode});
-  
-  
   }
   
   Future<void> set_reGeocodeLanguage(AMapLocationReGeocodeLanguage reGeocodeLanguage) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_reGeocodeLanguage', <String, dynamic>{'__this__': this, "reGeocodeLanguage": reGeocodeLanguage.toValue()});
-  
-  
   }
   
   Future<void> set_detectRiskOfFakeLocation(bool detectRiskOfFakeLocation) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_detectRiskOfFakeLocation', <String, dynamic>{'__this__': this, "detectRiskOfFakeLocation": detectRiskOfFakeLocation});
+  }
   
-  
+  Future<void> set_locationAccuracyMode(AMapLocationAccuracyMode locationAccuracyMode) async {
+    await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_locationAccuracyMode', <String, dynamic>{'__this__': this, "locationAccuracyMode": locationAccuracyMode.toValue()});
   }
   
   //endregion
 
   //region methods
   
-  static Future<bool> headingAvailable() async {
+  static Future<bool?> headingAvailable() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: AMapLocationManager::headingAvailable([])');
@@ -337,7 +217,7 @@ class AMapLocationManager extends NSObject  {
   }
   
   
-  Future<bool> requestLocationWithReGeocode_completionBlock(bool withReGeocode, void completionBlock(CLLocation location, AMapLocationReGeocode regeocode, NSError error)) async {
+  Future<bool?> requestLocationWithReGeocode_completionBlock(bool withReGeocode, void Function(CLLocation? location, AMapLocationReGeocode? regeocode, NSError? error) completionBlock) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: AMapLocationManager@$refId::requestLocationWithReGeocode([\'withReGeocode\':$withReGeocode])');
@@ -353,20 +233,21 @@ class AMapLocationManager extends NSObject  {
           try {
             final args = methodCall.arguments as Map;
             switch (methodCall.method) {
-              case 'Callback::AMapLocatingCompletionBlock::AMapLocatingCompletionBlock':
+              case 'AMapLocatingCompletionBlock__':
                 // print log
                 if (fluttifyLogEnabled) {
-          
+                  debugPrint('fluttify-dart-callback: completionBlock([\'location\':${args['location']}, \'regeocode\':${args['regeocode']}, \'error\':${args['error']}])');
                 }
           
                 // handle the native call
-                if (completionBlock != null) completionBlock(args['location'], args['regeocode'], args['error']);
+                completionBlock(AmapLocationFluttifyIOSAs<CLLocation>(args['location']), AmapLocationFluttifyIOSAs<AMapLocationReGeocode>(args['regeocode']), AmapLocationFluttifyIOSAs<NSError>(args['error']));
                 break;
               default:
+                throw MissingPluginException('方法${methodCall.method}未实现');
                 break;
             }
           } catch (e) {
-            debugPrint(e);
+            debugPrint(e.toString());
             rethrow;
           }
         });
@@ -459,6 +340,40 @@ class AMapLocationManager extends NSObject  {
     return __result__;
   }
   
+  
+  static Future<void> updatePrivacyShow_privacyInfo(AMapPrivacyShowStatus showStatus, AMapPrivacyInfoStatus containStatus) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: AMapLocationManager::updatePrivacyShow([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::updatePrivacyShow_privacyInfo', {"showStatus": showStatus.toValue(), "containStatus": containStatus.toValue()});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
+  
+  
+  static Future<void> updatePrivacyAgree(AMapPrivacyAgreeStatus agreeStatus) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: AMapLocationManager::updatePrivacyAgree([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::updatePrivacyAgree', {"agreeStatus": agreeStatus.toValue()});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
+  
   //endregion
 
   @override
@@ -467,51 +382,61 @@ class AMapLocationManager extends NSObject  {
   }
 }
 
-extension AMapLocationManager_Batch on List<AMapLocationManager> {
+extension AMapLocationManager_Batch on List<AMapLocationManager?> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first?.refId;
+  }
+
   //region getters
-  Future<List<double>> get_distanceFilter_batch() async {
+  Future<List<double?>> get_distanceFilter_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_distanceFilter_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<double>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
-  Future<List<double>> get_desiredAccuracy_batch() async {
+  Future<List<double?>> get_desiredAccuracy_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_desiredAccuracy_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<double>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
-  Future<List<bool>> get_pausesLocationUpdatesAutomatically_batch() async {
+  Future<List<bool?>> get_pausesLocationUpdatesAutomatically_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_pausesLocationUpdatesAutomatically_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
-  Future<List<bool>> get_allowsBackgroundLocationUpdates_batch() async {
+  Future<List<bool?>> get_allowsBackgroundLocationUpdates_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_allowsBackgroundLocationUpdates_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
-  Future<List<int>> get_locationTimeout_batch() async {
+  Future<List<int?>> get_locationTimeout_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_locationTimeout_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
-  Future<List<int>> get_reGeocodeTimeout_batch() async {
+  Future<List<int?>> get_reGeocodeTimeout_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_reGeocodeTimeout_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
-  Future<List<bool>> get_locatingWithReGeocode_batch() async {
+  Future<List<bool?>> get_locatingWithReGeocode_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_locatingWithReGeocode_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
-  Future<List<AMapLocationReGeocodeLanguage>> get_reGeocodeLanguage_batch() async {
+  Future<List<AMapLocationReGeocodeLanguage?>> get_reGeocodeLanguage_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_reGeocodeLanguage_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<AMapLocationReGeocodeLanguage>().map((__result__) => (__result__ as int).toAMapLocationReGeocodeLanguage()).toList();
+    return (resultBatch as List).map((__result__) => (__result__ as int).toAMapLocationReGeocodeLanguage()).cast<AMapLocationReGeocodeLanguage?>().toList();
   }
   
-  Future<List<bool>> get_detectRiskOfFakeLocation_batch() async {
+  Future<List<bool?>> get_detectRiskOfFakeLocation_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_detectRiskOfFakeLocation_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
+  }
+  
+  Future<List<AMapLocationAccuracyMode?>> get_locationAccuracyMode_batch() async {
+    final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapLocationManager::get_locationAccuracyMode_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List).map((__result__) => (__result__ as int).toAMapLocationAccuracyMode()).cast<AMapLocationAccuracyMode?>().toList();
   }
   
   //endregion
@@ -571,124 +496,134 @@ extension AMapLocationManager_Batch on List<AMapLocationManager> {
   
   }
   
+  Future<void> set_locationAccuracyMode_batch(List<AMapLocationAccuracyMode> locationAccuracyMode) async {
+    await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_locationAccuracyMode_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "locationAccuracyMode": locationAccuracyMode[__i__].toValue()}]);
+  
+  
+  }
+  
   //endregion
 
   //region methods
   
-  static Future<List<bool>> headingAvailable_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+  static Future<List<bool?>> headingAvailable_batch() async {
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::headingAvailable_batch', );
   
   
-    return (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
   Future<List<void>> startUpdatingHeading_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::startUpdatingHeading_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> stopUpdatingHeading_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::stopUpdatingHeading_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> dismissHeadingCalibrationDisplay_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::dismissHeadingCalibrationDisplay_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> startUpdatingLocation_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::startUpdatingLocation_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<void>> stopUpdatingLocation_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::stopUpdatingLocation_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   @deprecated
   Future<List<void>> startMonitoringForRegion_batch(List<AMapLocationRegion> region) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::startMonitoringForRegion_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"region": region[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   @deprecated
   Future<List<void>> stopMonitoringForRegion_batch(List<AMapLocationRegion> region) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::stopMonitoringForRegion_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"region": region[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   @deprecated
   Future<List<void>> requestStateForRegion_batch(List<AMapLocationRegion> region) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::requestStateForRegion_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"region": region[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<void>().map((__result__) => __result__).toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
+  }
+  
+  
+  static Future<List<void>> updatePrivacyShow_privacyInfo_batch(List<AMapPrivacyShowStatus> showStatus, List<AMapPrivacyInfoStatus> containStatus) async {
+    assert(showStatus.length == containStatus.length);
+  
+    // invoke native method
+    final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::updatePrivacyShow_privacyInfo_batch', [for (int __i__ = 0; __i__ < showStatus.length; __i__++) {"showStatus": showStatus[__i__].toValue(), "containStatus": containStatus[__i__].toValue()}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
+  }
+  
+  
+  static Future<List<void>> updatePrivacyAgree_batch(List<AMapPrivacyAgreeStatus> agreeStatus) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::updatePrivacyAgree_batch', [for (int __i__ = 0; __i__ < agreeStatus.length; __i__++) {"agreeStatus": agreeStatus[__i__].toValue()}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   //endregion
